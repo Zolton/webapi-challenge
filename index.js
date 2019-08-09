@@ -1,9 +1,11 @@
+require("dotenv").config()
+const port = process.env.PORT
 const express = require("express");
 const server = express();
 const array = require("./database");
 server.use(express.json());
-require("dotenv").config()
-const port = process.env.PORT
+
+
 
 // function queryReader (req, res, next) {
 //     if (req.query.completed ===  true) {
