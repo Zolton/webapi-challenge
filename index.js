@@ -1,5 +1,5 @@
-require("dotenv").config();
-const port = process.env.PORT;
+require("dotenv").config()
+const port = process.env.PORT
 const express = require("express");
 const server = express();
 const array = require("./database");
@@ -25,11 +25,12 @@ server.post("/", (req, res) => {
 
 server.delete("/:id", (req, res) => {
   let id = req.params.id;
-  const result = array.filter(test => test.id != id);
-  console.log(result);
-  //array.splice(id, 1);
+  const result = array.filter(test => test.id == id);
+  result.map(id=> end = id.id - 1)
+  console.log(end)
+  array.splice(end, 1)
+  res.status(200).json(array)
   
-  res.status(200).json(result);
 });
 
 // 1st parameter of splice: where to cut
@@ -43,10 +44,17 @@ server.put("/:id", (req, res) => {
   res.status(200).json(array);
 });
 
-// server.get("/:id", (req, res)=>{
-//     const id = req.params.id
-//     chores = array[id].chores
-// })
+server.get("/chores/:id", (req, res)=>{
+    let id = req.params.id;
+    const result = array.filter(test => test.id == id);
+    if (result.length < 1) {
+        res.status(404).json({Person: "Not Found"})
+    }
+    else {
+        result.map(chores => {return result2 = chores.chores})
+    }
+    res.status(200).json(result2);
+})
 
 // server.get("/chores/:id", queryReader, (req, res)=>{
 //     // array.map(idFinder=>{
