@@ -7,11 +7,11 @@ server.use(express.json());
 
 function queryReader(req, res, next) {
   req.completed = req.query.true;
-  let fin = [];
   if (req.completed === true) {
-    array.filter(test => test.chores.filter(com => (fin = com.complete)));
+    console.log(req.completed)
+    next()
   }
-  return fin;
+
 }
 
 server.get("/", (req, res) => {
@@ -41,8 +41,8 @@ server.delete("/:id", (req, res) => {
 server.put("/:id", (req, res) => {
   const replacement = req.body;
   const id = req.params.id;
-  let newId = id-1
-  replacement.id = parseInt(id)
+  let newId = id - 1;
+  replacement.id = parseInt(id);
   array.splice(newId, 1, { replacement });
   res.status(200).json(array);
 });
@@ -61,7 +61,8 @@ server.get("/chores/:id", (req, res) => {
 });
 
 server.get("/test", queryReader, (req, res) => {
-  res.status.json(fin);
+    console.log(req.completed)
+  res.status.json({test: "Heyo"});
 });
 
 server.listen(port, () => {
