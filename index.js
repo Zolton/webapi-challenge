@@ -5,14 +5,6 @@ const server = express();
 const array = require("./database");
 server.use(express.json());
 
-function queryReader(req, res, next) {
-  req.completed = req.query.completed;
-  if (req.completed === true) {
-    console.log(req.completed);
-    next();
-  }
-}
-
 server.get("/", (req, res) => {
   res.status(200).json(array);
 });
@@ -59,30 +51,29 @@ server.get("/chores/:id", (req, res) => {
   res.status(200).json(result2);
 });
 
-// WIP - don't understand how query strings work
 server.get("/test", (req, res) => {
   completed = req.query.completed;
-  let completedTasks = []
-  let unCompletedTasks = []
+  let completedTasks = [];
+  let unCompletedTasks = [];
   if (completed == "true") {
-    array.filter(user => user.chores.filter(test=>{if (test.completed == true){
-       completedTasks.push(test)
-      // console.log("test inside filer", test)
-       //console.log("completed tasks inside", completedTasks)
-    }}
-    ))
-    res.status(200).json(completedTasks)
+    array.filter(user =>
+      user.chores.filter(test => {
+        if (test.completed == true) {
+          completedTasks.push(test);
+        }
+      })
+    );
+    res.status(200).json(completedTasks);
+  } else {
+    array.filter(user =>
+      user.chores.filter(test => {
+        if (test.completed == false) {
+          unCompletedTasks.push(test);
+        }
+      })
+    );
+    res.status(200).json(unCompletedTasks);
   }
-  else {
-    array.filter(user => user.chores.filter(test=>{if (test.completed == false){
-        unCompletedTasks.push(test)
-    }}
-    ))
-    res.status(200).json(unCompletedTasks)
-  }
-//   console.log("result3", result3)
-//   console.log("compelted tasks outsdie if statemnet", completedTasks)
-  
 });
 
 server.listen(port, () => {
