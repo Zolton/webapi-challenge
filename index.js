@@ -62,17 +62,27 @@ server.get("/chores/:id", (req, res) => {
 // WIP - don't understand how query strings work
 server.get("/test", (req, res) => {
   completed = req.query.completed;
-  let task = [];
+  let completedTasks = []
+  let unCompletedTasks = []
   if (completed == "true") {
-    const result3 = array.filter(user => user.chores.filter(test=>{if (test.completed == true){
-       console.log(test)
-        res.status(200).json(test)
-    }}))
-   // console.log("result", result3);
-    //   tasks.filter(test=>result3 = test.completed)
-    //   console.log(result3)
-   // res.status(200).json(result3);
+    array.filter(user => user.chores.filter(test=>{if (test.completed == true){
+       completedTasks.push(test)
+      // console.log("test inside filer", test)
+       //console.log("completed tasks inside", completedTasks)
+    }}
+    ))
+    res.status(200).json(completedTasks)
   }
+  else {
+    array.filter(user => user.chores.filter(test=>{if (test.completed == false){
+        unCompletedTasks.push(test)
+    }}
+    ))
+    res.status(200).json(unCompletedTasks)
+  }
+//   console.log("result3", result3)
+//   console.log("compelted tasks outsdie if statemnet", completedTasks)
+  
 });
 
 server.listen(port, () => {
