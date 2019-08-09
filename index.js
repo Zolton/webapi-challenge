@@ -20,7 +20,6 @@ server.delete("/:id", (req, res) => {
   let id = req.params.id;
   const result = array.filter(test => test.id == id);
   result.map(id => (end = id.id - 1));
-  console.log(end);
   array.splice(end, 1);
   res.status(200).json(array);
 });
@@ -50,6 +49,9 @@ server.get("/chores/:id", (req, res) => {
   }
   res.status(200).json(result2);
 });
+
+// actually pretty proud of this, some of the most complex 
+// object drilling & logic I've ever done
 
 server.get("/test", (req, res) => {
   completed = req.query.completed;
