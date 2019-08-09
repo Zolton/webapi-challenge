@@ -6,12 +6,11 @@ const array = require("./database");
 server.use(express.json());
 
 function queryReader(req, res, next) {
-  req.completed = req.query.true;
+  req.completed = req.query.completed;
   if (req.completed === true) {
-    console.log(req.completed)
-    next()
+    console.log(req.completed);
+    next();
   }
-
 }
 
 server.get("/", (req, res) => {
@@ -60,9 +59,20 @@ server.get("/chores/:id", (req, res) => {
   res.status(200).json(result2);
 });
 
-server.get("/test", queryReader, (req, res) => {
-    console.log(req.completed)
-  res.status.json({test: "Heyo"});
+// WIP - don't understand how query strings work
+server.get("/test", (req, res) => {
+  completed = req.query.completed;
+  let task = [];
+  if (completed == "true") {
+    const result3 = array.filter(user => user.chores.filter(test=>{if (test.completed == true){
+       console.log(test)
+        res.status(200).json(test)
+    }}))
+   // console.log("result", result3);
+    //   tasks.filter(test=>result3 = test.completed)
+    //   console.log(result3)
+   // res.status(200).json(result3);
+  }
 });
 
 server.listen(port, () => {

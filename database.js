@@ -29,7 +29,7 @@ const array = [
         description: "take out the garbage",
         notes: "Don't let it drip on the carpet",
         assignedTo: 2,
-        completed: false
+        completed: true
       },
       {
         id: 2,
