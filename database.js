@@ -1,4 +1,3 @@
-
 const array = [
   {
     id: 1,
@@ -9,7 +8,7 @@ const array = [
         description: "take the ring to Mordor",
         notes: "make your way to Mount Doom",
         assignedTo: 1, // the id of Frodo,
-      completed: true
+        completed: true
       },
       {
         id: 2,
@@ -43,4 +42,4 @@ const array = [
   }
 ];
 
-module.exports = array
+module.exports = array;

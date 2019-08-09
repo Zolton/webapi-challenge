@@ -2,6 +2,8 @@ const express = require("express");
 const server = express();
 const array = require("./database");
 server.use(express.json());
+require("dotenv").config()
+const port = process.env.PORT
 
 // function queryReader (req, res, next) {
 //     if (req.query.completed ===  true) {
@@ -77,6 +79,6 @@ server.put('/:id', (req, res) => {
 // })
 
 
-server.listen(8000, () => {
+server.listen(port, () => {
   console.log("Server running on port 8000");
 });
