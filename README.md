@@ -16,12 +16,12 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [x ] Create a forked copy of this project.
+- [ x] Add your _Team Lead_ as collaborator on Github.
+- [ x] Clone your forked version of the Repository.
+- [x ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [ x] Implement the project on this Branch, committing changes regularly.
+- [ x] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
@@ -50,13 +50,13 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
-- [ ] Write endpoints to manage (CRUD) **chores**.
-- [ ] Hard code an array with a few **people**. No need to write endpoints to manage them.
-- [ ] Write an endpoint that accepts a person's `id` and returns the list of **chores** for the person. if a person with that `id` does not exist in the **people** array, the endpoint should return a `404` status code and a message. If the person exists, but has no **chores** assigned, return an empty array.
-- [ ] Add support for a `query string parameter` called _completed_ to the endpoint that returns the list of chores. When the client sends this query string parameter, and the value is `true`, the endpoint should return the list of completed chores. If the value of the query string parameter is `false`, the endpoint should return chores where completed is `false`. If the query string parameter is not sent, the endpoint should return all chores.
-- [ ] Deploy the API to _heroku_ and send the URL to your TL.
+- [ x] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [X ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [ x] Write endpoints to manage (CRUD) **chores**.
+- [ x] Hard code an array with a few **people**. No need to write endpoints to manage them.
+- [X] Write an endpoint that accepts a person's `id` and returns the list of **chores** for the person. if a person with that `id` does not exist in the **people** array, the endpoint should return a `404` status code and a message. If the person exists, but has no **chores** assigned, return an empty array.
+- [X ] Add support for a `query string parameter` called _completed_ to the endpoint that returns the list of chores. When the client sends this query string parameter, and the value is `true`, the endpoint should return the list of completed chores. If the value of the query string parameter is `false`, the endpoint should return chores where completed is `false`. If the query string parameter is not sent, the endpoint should return all chores.
+- [X ] Deploy the API to _heroku_ and send the URL to your TL.
 
 ### Resources (People and Chores)
 
